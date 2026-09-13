@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CoursIA
+GenericName=Assistant universitaire IA
+Comment=Enregistrement, transcription et révision universitaire avec Mistral AI
+
+Exec=coursia
+Icon=coursia
+
+Terminal=false
+
+Categories=Education;
+StartupNotify=true
