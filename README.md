@@ -1,7 +1,7 @@
 # 🎓 CoursIA
 
 <p align="center">
-  assets/logo.png
+  source/assets/logo.png
 </p>
 
 <p align="center">
