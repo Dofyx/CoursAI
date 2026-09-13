@@ -357,7 +357,7 @@ sudo pacman -S --needed python python-pip portaudio
 
 ```bash
 git clone https://github.com/Dofyx/CoursAI.git
-cd CoursAI
+cd CoursAI/source
 ```
 
 ### Créer l'environnement Python
@@ -386,84 +386,12 @@ chmod +x run.sh
 
 ## Compilation du paquet `.pkg.tar.zst`
 
-### Arborescence du répertoire de construction
-
-```text
-coursia-pkg/
-├── PKGBUILD
-├── coursia.desktop
-├── coursia.sh
-└── source/
-    ├── main.py
-    ├── README.md
-    ├── requirements.txt
-    ├── run.sh
-    └── assets/
-        ├── logo.png
-        ├── logo.svg
-        ├── logo.ico
-        ├── logo_icon.png
-        ├── logo_icon.ico
-        ├── logo_icon_128.png
-        ├── logo_icon_256.png
-        └── ...
-```
-
-### Exemple de `PKGBUILD`
-
-```bash
-pkgname=coursia
-pkgver=0.5
-pkgrel=1
-pkgdesc="Enregistrement, transcription et révision universitaire avec Mistral AI"
-arch=('x86_64')
-url="https://github.com/Dofyx/CoursAI"
-license=('CCPL')
-depends=(
-    'python'
-    'python-pip'
-    'portaudio'
-)
-source=()
-sha256sums=()
-
-package() {
-    install -dm755 "$pkgdir/opt/coursia"
-    cp -r "$startdir/source/"* "$pkgdir/opt/coursia/"
-
-    install -Dm755 \
-        "$startdir/coursia.sh" \
-        "$pkgdir/usr/bin/coursia"
-
-    install -Dm644 \
-        "$startdir/coursia.desktop" \
-        "$pkgdir/usr/share/applications/coursia.desktop"
-
-    install -Dm644 \
-        "$startdir/source/assets/logo_icon_256.png" \
-        "$pkgdir/usr/share/icons/hicolor/256x256/apps/coursia.png"
-}
-```
-
-### Exemple de `coursia.desktop`
-
-```ini
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=CoursIA
-GenericName=Assistant universitaire IA
-Comment=Enregistrement, transcription et révision universitaire avec Mistral AI
-Exec=coursia
-Icon=coursia
-Terminal=false
-Categories=Education;
-StartupNotify=true
-```
-
 ### Construire le paquet
 
-Depuis le dossier contenant `PKGBUILD` :
+```bash
+git clone https://github.com/Dofyx/CoursAI.git
+cd CoursAI
+```
 
 ```bash
 makepkg -f
@@ -495,6 +423,7 @@ Les dossiers de données utilisateur ne sont pas inclus dans le dépôt. Ils son
 
 ```text
 CoursAI/
+
 ├── main.py
 ├── README.md
 ├── requirements.txt
