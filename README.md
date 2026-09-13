@@ -654,7 +654,7 @@ Consultez le [résumé officiel de la licence](https://creativecommons.org/licen
 
 ## Auteur
 
-**Developed by Dofyx AI Corp**
+**Developed by Dofyx**
 
 - Projet : [CoursIA sur GitHub](https://github.com/Dofyx/CoursAI)
 - Version décrite : `0.5`
