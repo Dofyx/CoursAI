@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QLineEdit, QPushButton, QPlainTextEdit, QScrollArea
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QLineEdit, QPushButton, QPlainTextEdit, QScrollArea, QLabel, QMessageBox
 from PySide6.QtCore import Qt
 from pathlib import Path
 import webbrowser
