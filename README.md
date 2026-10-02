@@ -49,61 +49,61 @@ Document DOCX
 
 ### Enregistrement audio
 
-- enregistrement depuis un microphone sélectionnable ;
-- pause et reprise de l'enregistrement ;
-- nommage automatique à partir de la matière, du titre, de la date et de l'heure ;
-- import de fichiers audio existants ;
-- gestion des fichiers depuis l'interface : ouverture, renommage et suppression ;
+- enregistrement depuis un microphone sélectionnable 
+- pause et reprise de l'enregistrement 
+- nommage automatique à partir de la matière, du titre, de la date et de l'heure 
+- import de fichiers audio existants
+- gestion des fichiers depuis l'interface : ouverture, renommage et suppression 
 - avertissement avant l'écrasement d'un fichier audio existant.
 
 Formats proposés à l'import par l'application :
 
-- WAV ;
-- MP3 ;
-- M4A ;
-- FLAC ;
+- WAV 
+- MP3 
+- M4A 
+- FLAC 
 - OGG ;
-- OPUS.
+- OPUS
 
 ### Retranscription
 
-- transcription par l'API Mistral avec le modèle `voxtral-mini-latest` par défaut ;
-- langue française transmise à l'API ;
-- conservation du nom et des métadonnées du cours ;
-- création d'un fichier texte UTF-8 ;
+- transcription par l'API Mistral avec le modèle `voxtral-mini-latest` par défaut 
+- langue française transmise à l'API 
+- conservation du nom et des métadonnées du cours 
+- création d'un fichier texte UTF-8 
 - avertissement avant le remplacement d'une retranscription existante.
 
 ### Résumé pédagogique
 
 Le résumé est conçu comme un document rédigé permettant de comprendre le cours sans relire toute la retranscription. Il demande notamment à Mistral de produire :
 
-1. l'objet et la problématique du cours ;
-2. le plan suivi ;
-3. une synthèse développée des idées et raisonnements ;
-4. les exemples pédagogiques utiles ;
-5. une conclusion avec les points essentiels.
+1. l'objet et la problématique du cours 
+2. le plan suivi 
+3. une synthèse développée des idées et raisonnements 
+4. les exemples pédagogiques utiles 
+5. une conclusion avec les points essentiels
 
 ### Fiche de révision
 
 La fiche de révision est volontairement différente du résumé. Elle privilégie une présentation concise et mémorisable comprenant :
 
-1. les objectifs à maîtriser ;
-2. les définitions essentielles ;
-3. les concepts et mécanismes ;
-4. les repères, auteurs, dates ou formules présents dans le cours ;
-5. les exemples à retenir ;
-6. les erreurs ou confusions à éviter ;
-7. des questions-réponses ;
-8. un mini-quiz corrigé ;
-9. une checklist finale « Je sais… ».
+1. les objectifs à maîtriser 
+2. les définitions essentielles 
+3. les concepts et mécanismes 
+4. les repères, auteurs, dates ou formules présents dans le cours 
+5. les exemples à retenir 
+6. les erreurs ou confusions à éviter 
+7. des questions-réponses 
+8. un mini-quiz corrigé 
+9. une checklist finale « Je sais… »
 
 ### Sécurité contre les écrasements
 
 CoursIA demande une confirmation avant de remplacer :
 
-- un fichier audio importé ;
-- une retranscription TXT ;
-- un résumé DOCX ;
+- un fichier audio importé 
+- une retranscription TXT 
+- un résumé DOCX 
 - une fiche de révision DOCX.
 
 Le choix **Non** est proposé par défaut afin de limiter les suppressions accidentelles et les appels API inutiles.
@@ -116,10 +116,10 @@ La matière ne sert pas uniquement à classer les fichiers. Elle est enregistré
 
 Un paramétrage précis aide le modèle à :
 
-- employer le vocabulaire propre à la discipline ;
-- interpréter correctement les notions ambiguës ;
-- structurer les réponses dans un cadre pédagogique cohérent ;
-- produire des définitions et des questions de révision plus pertinentes.
+- employer le vocabulaire propre à la discipline 
+- interpréter correctement les notions ambiguës 
+- structurer les réponses dans un cadre pédagogique cohérent 
+- produire des définitions et des questions de révision plus pertinentes
 
 ### Matières recommandées
 
@@ -217,10 +217,10 @@ Les documents générés sont nommés selon le type :
 
 Les fichiers JSON associés conservent notamment :
 
-- la matière ;
-- le titre ;
-- la date et l'heure ;
-- la provenance du contenu.
+- la matière 
+- le titre 
+- la date et l'heure 
+- la provenance du contenu
 
 ### Configuration
 
@@ -474,16 +474,16 @@ assets/logo.png
 
 CoursIA peut notamment accompagner :
 
-- les études universitaires ;
-- les BTS et formations professionnalisantes ;
-- les écoles d'ingénieurs ;
-- la préparation de concours ;
-- la formation continue ;
-- l'autoformation ;
-- la révision d'examens ;
-- la synthèse de conférences ;
-- la prise de notes lors de formations techniques ;
-- la création d'une base personnelle de cours et de fiches.
+- les études universitaires 
+- les BTS et formations professionnalisantes 
+- les écoles d'ingénieurs 
+- la préparation de concours 
+- la formation continue 
+- l'autoformation 
+- la révision d'examens 
+- la synthèse de conférences 
+- la prise de notes lors de formations techniques 
+- la création d'une base personnelle de cours et de fiches
 
 ---
 
@@ -495,11 +495,11 @@ La transcription et la génération de documents impliquent l'envoi des contenus
 
 Avant utilisation, assurez-vous notamment :
 
-- d'être autorisé à enregistrer les personnes présentes ;
-- de respecter la confidentialité des échanges ;
-- de respecter les règles de votre établissement ;
-- de respecter le droit d'auteur et les conditions d'utilisation des contenus ;
-- de contrôler les documents produits par l'IA.
+- d'être autorisé à enregistrer les personnes présentes 
+- de respecter la confidentialité des échanges 
+- de respecter les règles de votre établissement 
+- de respecter le droit d'auteur et les conditions d'utilisation des contenus 
+- de contrôler les documents produits par l'IA
 
 CoursIA est un outil d'assistance. Les contenus générés peuvent comporter des erreurs ou des omissions et doivent être vérifiés.
 
@@ -557,10 +557,10 @@ update-desktop-database /usr/share/applications 2>/dev/null || true
 
 Les contributions sont bienvenues :
 
-1. créez un fork du dépôt ;
-2. créez une branche dédiée ;
-3. effectuez et testez les modifications ;
-4. ouvrez une Pull Request ;
+1. créez un fork du dépôt 
+2. créez une branche dédiée 
+3. effectuez et testez les modifications 
+4. ouvrez une Pull Request 
 5. utilisez les Issues pour signaler un bug ou proposer une évolution.
 
 Dépôt : [Dofyx/CoursAI](https://github.com/Dofyx/CoursAI)
@@ -594,10 +594,10 @@ Consultez le [résumé officiel de la licence](https://creativecommons.org/licen
 
 Si CoursIA vous est utile :
 
-- ajoutez une étoile au dépôt ;
-- signalez les anomalies dans les Issues ;
-- proposez des améliorations ;
-- partagez le projet avec les personnes susceptibles d'en avoir besoin.
+- ajoutez une étoile au dépôt 
+- signalez les anomalies dans les Issues 
+- proposez des améliorations 
+- partagez le projet avec les personnes susceptibles d'en avoir besoin
 
 <p align="center">
   <strong>Bonnes études et bonnes révisions.</strong>
