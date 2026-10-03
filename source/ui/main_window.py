@@ -97,6 +97,12 @@ class MainWindow(QMainWindow):
         
         # Pages
         self.stack = QStackedWidget()
+        self.rec_page = None
+        self.tr_page = None
+        self.doc_page = None
+        self.cfg_page = None
+        self.about_page = None
+        
         pages = [
             ('Enregistrement', self._create_rec_page()),
             ('Retranscriptions', self._create_tr_page()),
@@ -127,32 +133,32 @@ class MainWindow(QMainWindow):
     def _create_rec_page(self):
         """Crée la page d'enregistrement."""
         from .pages.rec import RecPage
-        page = RecPage(self, self.bus, self.c, self.r)
-        return page
+        self.rec_page = RecPage(self, self.bus, self.c, self.r)
+        return self.rec_page
 
     def _create_tr_page(self):
         """Crée la page de retranscription."""
         from .pages.tr import TrPage
-        page = TrPage(self, self.bus, self.c)
-        return page
+        self.tr_page = TrPage(self, self.bus, self.c)
+        return self.tr_page
 
     def _create_doc_page(self):
         """Crée la page de génération de documents."""
         from .pages.doc import DocPage
-        page = DocPage(self, self.bus, self.c)
-        return page
+        self.doc_page = DocPage(self, self.bus, self.c)
+        return self.doc_page
 
     def _create_cfg_page(self):
         """Crée la page de configuration."""
         from .pages.cfg import CfgPage
-        page = CfgPage(self, self.c)
-        return page
+        self.cfg_page = CfgPage(self, self.c)
+        return self.cfg_page
 
     def _create_about_page(self):
         """Crée la page "À propos"."""
         from .pages.about import AboutPage
-        page = AboutPage(self)
-        return page
+        self.about_page = AboutPage(self)
+        return self.about_page
 
     def head(self, t: str, s: str) -> QWidget:
         """Crée un en-tête de page."""

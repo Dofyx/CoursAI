@@ -1,8 +1,8 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QPushButton, QLabel
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QPushButton, QLabel, QMessageBox
 from PySide6.QtCore import Qt
 from pathlib import Path
 
-from config.paths import TR
+from config.paths import TR, REC
 from audio.manager import Manager
 
 
@@ -69,7 +69,6 @@ class TrPage(QWidget):
         """Demande confirmation avant écrasement."""
         if not path.exists():
             return True
-        from PySide6.QtWidgets import QMessageBox
         return QMessageBox.warning(
             self.parent(), 'Fichier existant',
             f'{label} existe déjà :\n\n{path.name}\n\nVoulez-vous l’écraser ? Cette action est irréversible.',
@@ -79,7 +78,6 @@ class TrPage(QWidget):
 
     def _refresh(self):
         """Rafraîchit la liste des enregistrements."""
-        from config.paths import REC
         from audio.manager import Manager
         temp_manager = Manager('Temp', REC, ['*.wav', '*.mp3', '*.m4a', '*.flac', '*.ogg', '*.opus'])
         self.trrec.clear()

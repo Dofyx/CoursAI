@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QPushButton, QLabel, QHBoxLayout
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QPushButton, QLabel, QHBoxLayout, QMessageBox
 from PySide6.QtCore import Qt
 from pathlib import Path
 
@@ -73,7 +73,6 @@ class DocPage(QWidget):
         """Demande confirmation avant écrasement."""
         if not path.exists():
             return True
-        from PySide6.QtWidgets import QMessageBox
         return QMessageBox.warning(
             self.parent(), 'Fichier existant',
             f'{label} existe déjà :\n\n{path.name}\n\nVoulez-vous l’écraser ? Cette action est irréversible.',
@@ -83,8 +82,8 @@ class DocPage(QWidget):
 
     def _refresh(self):
         """Rafraîchit la liste des transcriptions."""
-        from config.paths import TR
         from audio.manager import Manager
+        from config.paths import TR
         temp_manager = Manager('Temp', TR, ['*.txt'])
         self.doctr.clear()
         self.doctr.addItems([p.name for p in temp_manager.paths()])

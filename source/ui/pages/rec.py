@@ -1,8 +1,7 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QLineEdit, QLabel, QHBoxLayout, QPushButton
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGroupBox, QFormLayout, QComboBox, QLineEdit, QLabel, QHBoxLayout, QPushButton, QMessageBox, QInputDialog, QFileDialog
 from PySide6.QtCore import Qt
 from pathlib import Path
 
-from config.paths import REC
 from config.settings import load_config
 from audio.manager import Manager
 from audio.recorder import Recorder
@@ -73,6 +72,7 @@ class RecPage(QWidget):
         l.addWidget(g)
         
         # Gestionnaire de fichiers
+        from config.paths import REC
         self.fmrec = Manager('Enregistrements', REC, ['*.wav', '*.mp3', '*.m4a', '*.flac', '*.ogg', '*.opus'])
         l.addWidget(self.fmrec, 1)
         
@@ -114,6 +114,7 @@ class RecPage(QWidget):
         """Démarre l'enregistrement."""
         try:
             s, t, st = self._checked_identity()
+            from config.paths import REC
             self.recorder.start(REC / (st + '.wav'), self.mic.currentData())
             from utils.meta import write_meta
             write_meta(st, s, t, 'enregistrement')
@@ -130,11 +131,6 @@ class RecPage(QWidget):
 
     def _import_audio(self):
         """Importe un fichier audio."""
-        from PySide6.QtWidgets import QFileDialog, QMessageBox
-        from utils.helpers import clean
-        from utils.meta import write_meta
-        import shutil
-        
         try:
             s, t, st = self._checked_identity()
             src, _ = QFileDialog.getOpenFileName(
@@ -143,11 +139,14 @@ class RecPage(QWidget):
             )
             if not src:
                 return
+            from config.paths import REC
             ext = Path(src).suffix.lower()
             dst = REC / (st + ext)
             if not self._confirm_overwrite(dst, 'Le fichier audio'):
                 return
+            import shutil
             shutil.copy2(src, dst)
+            from utils.meta import write_meta
             write_meta(st, s, t, 'fichier importé')
             self.fmrec.refresh()
             self._refresh()
@@ -171,9 +170,9 @@ class RecPage(QWidget):
 
     def _refresh(self):
         """Rafraîchit les listes de fichiers."""
-        if hasattr(self.parent(), 'trrec'):
-            self.parent().trrec.clear()
-            self.parent().trrec.addItems([p.name for p in self.fmrec.paths()])
-        if hasattr(self.parent(), 'doctr'):
-            self.parent().doctr.clear()
-            self.parent().doctr.addItems([p.name for p in self.parent().fmtr.paths()])
+        if hasattr(self.parent(), 'tr_page') and self.parent().tr_page:
+            self.parent().tr_page.trrec.clear()
+            self.parent().tr_page.trrec.addItems([p.name for p in self.fmrec.paths()])
+        if hasattr(self.parent(), 'doc_page') and self.parent().doc_page:
+            self.parent().doc_page.doctr.clear()
+            self.parent().doc_page.doctr.addItems([p.name for p in self.parent().doc_page.fmtr.paths()])
